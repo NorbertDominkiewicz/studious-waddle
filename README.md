@@ -1,11 +1,11 @@
 <div align="center">
 <h1>Optimization Methods</h1>
-_Project for computer science classes purposes_
+Project for computer science classes purposes
 </div>
-
+<br><br>
 <div align="right">
 Created by Norbert Dominkiewicz <br>
-Group: II
+Group: II <br>
 Example 23. y^3 + x^2 - 9xy - 3*x + 2 (3,7)
 </div>
 
