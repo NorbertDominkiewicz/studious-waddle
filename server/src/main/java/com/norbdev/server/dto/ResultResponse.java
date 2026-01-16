@@ -1,37 +1,37 @@
 package com.norbdev.server.dto;
 
 public class ResultResponse {
-    String equation;
-    int result;
-    int epsilon;
+    double[] result;
+    double epsilon;
+    int iterations;
 
-    public ResultResponse(String equation, int result, int epsilon) {
-        this.equation = equation;
+    public ResultResponse(double[] result, double epsilon, int iterations) {
         this.result = result;
         this.epsilon = epsilon;
+        this.iterations = iterations;
     }
 
-    public String getEquation() {
-        return equation;
-    }
-
-    public void setEquation(String equation) {
-        this.equation = equation;
-    }
-
-    public int getResult() {
-        return result;
-    }
-
-    public void setResult(int result) {
-        this.result = result;
-    }
-
-    public int getEpsilon() {
+    public double getEpsilon() {
         return epsilon;
     }
 
-    public void setEpsilon(int epsilon) {
+    public int getIterations() {
+        return iterations;
+    }
+
+    public void setIterations(int iterations) {
+        this.iterations = iterations;
+    }
+
+    public void setEpsilon(double epsilon) {
         this.epsilon = epsilon;
+    }
+
+    public double[] getResult() {
+        return result;
+    }
+
+    public void setResult(double[] result) {
+        this.result = result;
     }
 }

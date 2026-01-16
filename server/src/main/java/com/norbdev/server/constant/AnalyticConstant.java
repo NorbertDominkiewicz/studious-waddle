@@ -2,7 +2,7 @@ package com.norbdev.server.constant;
 
 import java.util.function.BiFunction;
 
-public class AnalyticConstant {
+public final class AnalyticConstant {
     private AnalyticConstant() {}
 
     public static BiFunction<Double, Double, Double> f() {

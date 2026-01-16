@@ -7,15 +7,17 @@ public class ExampleRequest {
     String mode;
     int a;
     int b;
-    int epsilon;
+    double epsilon;
 
-    public ExampleRequest(String equation, String mode, int a, int b, int epsilon) {
+    public ExampleRequest(String equation, String mode, int a, int b, double epsilon) {
         this.equation = equation;
         this.mode = mode;
         this.a = a;
         this.b = b;
         this.epsilon = epsilon;
     }
+
+    public ExampleRequest() {}
 
     public String getEquation() {
         return equation;
@@ -49,11 +51,11 @@ public class ExampleRequest {
         this.b = b;
     }
 
-    public int getEpsilon() {
+    public double getEpsilon() {
         return epsilon;
     }
 
-    public void setEpsilon(int epsilon) {
+    public void setEpsilon(double epsilon) {
         this.epsilon = epsilon;
     }
 }

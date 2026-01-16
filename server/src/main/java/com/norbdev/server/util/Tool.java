@@ -11,15 +11,11 @@ import java.util.function.BiFunction;
 public class Tool {
     private Tool() {}
 
-    public static double [] createGradient(double x, double y, String mode) {
-        if (mode.equals("analytic")) {
-            return new double[] {
-                    AnalyticConstant.dfx().apply(x, y),
-                    AnalyticConstant.dfy().apply(x, y)
-            };
-        } else {
-            throw new ModeException("Unreachable mode: " + mode);
-        }
+    public static double [] createGradient(double x, double y) {
+        return new double[] {
+                AnalyticConstant.dfx().apply(x, y),
+                AnalyticConstant.dfy().apply(x, y)
+        };
     }
 
     public static double [] createGradient(BiFunction<Double, Double, Double> function, double x, double y, String mode) {
@@ -33,23 +29,19 @@ public class Tool {
         }
     }
 
-    public static double[][] createInverseHessian(double x, double y, String mode) {
-        if (mode.equals("analytic")) {
-            double a = AnalyticConstant.d2fx().apply(x, y);
-            double b = AnalyticConstant.dxy().apply(x, y);
-            double c = AnalyticConstant.dxy().apply(x, y);
-            double d = AnalyticConstant.d2fy().apply(x, y);
+    public static double[][] createInverseHessian(double x, double y) {
+        double a = AnalyticConstant.d2fx().apply(x, y);
+        double b = AnalyticConstant.dxy().apply(x, y);
+        double c = AnalyticConstant.dxy().apply(x, y);
+        double d = AnalyticConstant.d2fy().apply(x, y);
 
-            double det = a * d - b * c;
-            double coefficient = 1 / det;
+        double det = a * d - b * c;
+        double coefficient = 1 / det;
 
-            return new double[][] {
-                    {coefficient * d, -coefficient * b},
-                    {-coefficient * c, coefficient * a}
-            };
-        } else {
-            throw new ModeException("Unreachable mode: " + mode);
-        }
+        return new double[][] {
+                {coefficient * d, -coefficient * b},
+                {-coefficient * c, coefficient * a}
+        };
     }
 
     public static BiFunction<Double, Double, Double> buildFunction(String equation) {
