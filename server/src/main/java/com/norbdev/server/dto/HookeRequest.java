@@ -8,6 +8,8 @@ public class HookeRequest {
     double step;
     double epsilon;
 
+    public HookeRequest() {}
+
     public String getEquation() {
         return equation;
     }

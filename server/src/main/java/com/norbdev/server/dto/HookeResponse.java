@@ -1,10 +1,12 @@
 package com.norbdev.server.dto;
 
+import java.util.List;
+
 public class HookeResponse {
-    double x;
-    double y;
-    double iterations;
-    double[] xs;
+    public double x;
+    public double y;
+    public int iterations;
+    public List<double[]> path;
 
     public double getX() {
         return x;
@@ -22,19 +24,19 @@ public class HookeResponse {
         this.y = y;
     }
 
-    public double getIterations() {
+    public int getIterations() {
         return iterations;
     }
 
-    public void setIterations(double iterations) {
+    public void setIterations(int iterations) {
         this.iterations = iterations;
     }
 
-    public double[] getXs() {
-        return xs;
+    public List<double[]> getPath() {
+        return path;
     }
 
-    public void setXs(double[] xs) {
-        this.xs = xs;
+    public void setPath(List<double[]> path) {
+        this.path = path;
     }
 }
