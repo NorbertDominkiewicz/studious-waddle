@@ -1,9 +1,8 @@
 package com.norbdev.server.controller;
 
-import com.norbdev.server.dto.GaussSeidelRequest;
-import com.norbdev.server.dto.GaussSeidelResponse;
-import com.norbdev.server.dto.HookeRequest;
-import com.norbdev.server.dto.HookeResponse;
+import com.norbdev.server.algorithm.Newton;
+import com.norbdev.server.algorithm.SteepestDescent;
+import com.norbdev.server.dto.*;
 import com.norbdev.server.service.ComputeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +31,22 @@ public class ComputeController {
         return ResponseEntity.ok(
                 computeService.computeGaussSeidel(request)
         );
+    }
+
+    @PostMapping("/steepest-descent")
+    public ResponseEntity<ResultResponse> computeSteepestDescent(
+            @RequestBody ExampleRequest request
+    ) {
+        ResultResponse response = SteepestDescent.calculate(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/newton")
+    public ResponseEntity<ResultResponse> computeNewton(
+            @RequestBody ExampleRequest request
+    ) {
+        ResultResponse response = Newton.calculate(request);
+        return ResponseEntity.ok(response);
     }
 }
 

@@ -1,18 +1,19 @@
 package com.norbdev.server.dto;
 
-public class ResultResponse {
-    double[] result;
-    double epsilon;
-    int iterations;
+import java.util.List;
 
-    public ResultResponse(double[] result, double epsilon, int iterations) {
-        this.result = result;
-        this.epsilon = epsilon;
-        this.iterations = iterations;
+public class ResultResponse {
+    public double x;
+    public double y;
+    public int iterations;
+    public List<double[]> path;
+
+    public List<double[]> getPath() {
+        return path;
     }
 
-    public double getEpsilon() {
-        return epsilon;
+    public void setPath(List<double[]> path) {
+        this.path = path;
     }
 
     public int getIterations() {
@@ -23,15 +24,19 @@ public class ResultResponse {
         this.iterations = iterations;
     }
 
-    public void setEpsilon(double epsilon) {
-        this.epsilon = epsilon;
+    public double getY() {
+        return y;
     }
 
-    public double[] getResult() {
-        return result;
+    public void setY(double y) {
+        this.y = y;
     }
 
-    public void setResult(double[] result) {
-        this.result = result;
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
     }
 }
